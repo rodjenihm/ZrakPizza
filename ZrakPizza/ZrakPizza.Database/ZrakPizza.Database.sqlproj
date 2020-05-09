@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
@@ -68,5 +69,9 @@
     <Build Include="dbo\Tables\UserRoles.sql" />
     <Build Include="dbo\Tables\Carts.sql" />
     <Build Include="dbo\Tables\ProductVariants.sql" />
+    <Build Include="dbo\Stored Procedures\Users_Create.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ZrakPizza.Database.publish.xml" />
   </ItemGroup>
 </Project>
