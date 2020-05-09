@@ -7,6 +7,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ZrakPizza.Database", "ZrakP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZrakPizza.DataAccess", "ZrakPizza.DataAccess\ZrakPizza.DataAccess.csproj", "{F102CE2C-D807-418B-9EF4-766F391B3561}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZrakPizza.Web", "ZrakPizza.Web\ZrakPizza.Web.csproj", "{3341C398-163A-4BB6-8A9D-5083AD8B63D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{F102CE2C-D807-418B-9EF4-766F391B3561}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F102CE2C-D807-418B-9EF4-766F391B3561}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F102CE2C-D807-418B-9EF4-766F391B3561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3341C398-163A-4BB6-8A9D-5083AD8B63D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3341C398-163A-4BB6-8A9D-5083AD8B63D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3341C398-163A-4BB6-8A9D-5083AD8B63D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3341C398-163A-4BB6-8A9D-5083AD8B63D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
