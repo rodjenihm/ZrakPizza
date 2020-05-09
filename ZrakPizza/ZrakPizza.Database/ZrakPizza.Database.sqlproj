@@ -70,6 +70,8 @@
     <Build Include="dbo\Tables\Carts.sql" />
     <Build Include="dbo\Tables\ProductVariants.sql" />
     <Build Include="dbo\Stored Procedures\Users_Create.sql" />
+    <Build Include="dbo\Stored Procedures\Products_GetAllWithVariants.sql" />
+    <Build Include="dbo\Stored Procedures\Products_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZrakPizza.Database.publish.xml" />
