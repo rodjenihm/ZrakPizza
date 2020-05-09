@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ZrakPizza.DataAccess;
+using ZrakPizza.Services;
 
 namespace ZrakPizza.Web
 {
@@ -28,6 +29,8 @@ namespace ZrakPizza.Web
         {
             var connectionString = new ConnectionString(Configuration.GetConnectionString("DefaultConnection"));
             services.AddSingleton(connectionString);
+
+            services.AddScoped<IPasswordService, PasswordService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
 

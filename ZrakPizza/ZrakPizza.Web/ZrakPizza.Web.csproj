@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZrakPizza.DataAccess\ZrakPizza.DataAccess.csproj" />
+    <ProjectReference Include="..\ZrakPizza.Services\ZrakPizza.Services.csproj" />
   </ItemGroup>
 
 </Project>
