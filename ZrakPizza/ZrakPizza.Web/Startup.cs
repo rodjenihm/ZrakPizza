@@ -37,6 +37,8 @@ namespace ZrakPizza.Web
 
             services.AddScoped<IProductRepository, ProductRepository>();
 
+            services.AddScoped<ICartRepository, CartRepository>();
+
             services.AddAutoMapper(typeof(Startup));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
