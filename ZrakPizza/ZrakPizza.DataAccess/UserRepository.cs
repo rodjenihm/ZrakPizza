@@ -22,10 +22,7 @@ namespace ZrakPizza.DataAccess
         {
             using (var connection = new SqlConnection(_connectionString.Value))
             {
-                var sql = @"
-insert into [dbo].[users] (Id, UserName, Name, PasswordHash)
-values
-(@Id, @UserName, @Name, @PasswordHash)";
+                var sql = @"[Users_Create] @Id, @UserName, @Name, @PasswordHash";
                 var result = await connection.ExecuteAsync(sql, user);
             }
         }
