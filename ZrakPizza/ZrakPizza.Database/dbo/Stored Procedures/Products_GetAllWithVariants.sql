@@ -8,5 +8,5 @@ BEGIN
     FROM [dbo].[Products] p
     INNER JOIN [dbo].[ProductCategories] pc ON pc.ProductId = p.Id
     INNER JOIN [dbo].[Categories] c ON c.Id = pc.CategoryId
-    INNER JOIN [dbo].[ProductVariants] pv ON pv.ProductId = p.Id
+    INNER JOIN [dbo].[ProductVariantOptions] pv ON pv.ProductId = p.Id
 END
