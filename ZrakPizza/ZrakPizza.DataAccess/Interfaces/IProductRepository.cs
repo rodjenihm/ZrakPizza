@@ -8,6 +8,6 @@ namespace ZrakPizza.DataAccess
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<Product>> GetAll(bool includeVariants);
+        Task<IEnumerable<Product>> GetAll(bool includeProductOptions);
     }
 }

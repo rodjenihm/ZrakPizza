@@ -1,6 +1,6 @@
 ﻿namespace ZrakPizza.DataAccess.Entities
 {
-    public class VariantOption
+    public class ProductOption
     {
         public string Id { get; set; }
         public string Description { get; set; }

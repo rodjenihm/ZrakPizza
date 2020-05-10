@@ -17,21 +17,21 @@ namespace ZrakPizza.DataAccess
             _connectionString = connectionString;
         }
 
-        public async Task<IEnumerable<Product>> GetAll(bool includeVariants = true)
+        public async Task<IEnumerable<Product>> GetAll(bool includeProductOptions = true)
         {
             using (var connection = new SqlConnection(_connectionString.Value))
             {
-                if (includeVariants)
+                if (includeProductOptions)
                 {
-                    var sql = "[Products_GetAllWithVariants]";
+                    var sql = "[Products_GetAllWithProductOptions]";
 
                     var dic = new Dictionary<string, Product>();
 
-                    var result = await connection.QueryAsync<Product, VariantOption, Product>(sql, (p, v) =>
+                    var result = await connection.QueryAsync<Product, ProductOption, Product>(sql, (p, v) =>
                     {
                         if (!dic.TryGetValue(p.Id, out Product product)) dic.Add(p.Id, product = p);
 
-                        product.VariantOptions.Add(v);
+                        product.ProductOptions.Add(v);
 
                         return p;
                     });

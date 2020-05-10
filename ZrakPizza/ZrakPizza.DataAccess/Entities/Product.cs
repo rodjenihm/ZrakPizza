@@ -12,6 +12,6 @@ namespace ZrakPizza.DataAccess.Entities
         public string ImageUrl { get; set; }
         public string Category { get; set; }
 
-        public ICollection<VariantOption> VariantOptions { get; set; } = new List<VariantOption>();
+        public ICollection<ProductOption> ProductOptions { get; set; } = new List<ProductOption>();
     }
 }
