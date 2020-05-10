@@ -35,6 +35,8 @@ namespace ZrakPizza.Web
 
             services.AddScoped<IUserRepository, UserRepository>();
 
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+
             services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddScoped<ICartRepository, CartRepository>();
