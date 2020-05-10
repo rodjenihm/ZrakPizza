@@ -9,5 +9,6 @@ namespace ZrakPizza.DataAccess
     public interface IUserRepository
     {
         Task Create(User user);
+        Task<User> GetByUsername(string username);
     }
 }

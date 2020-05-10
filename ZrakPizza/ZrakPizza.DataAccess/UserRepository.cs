@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ZrakPizza.DataAccess.Entities;
 using Dapper;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace ZrakPizza.DataAccess
 {
@@ -23,7 +24,20 @@ namespace ZrakPizza.DataAccess
             using (var connection = new SqlConnection(_connectionString.Value))
             {
                 var sql = @"[Users_Create] @Id, @UserName, @Name, @PasswordHash";
+
                 var result = await connection.ExecuteAsync(sql, user);
+            }
+        }
+
+        public async Task<User> GetByUsername(string username)
+        {
+            using (var connection = new SqlConnection(_connectionString.Value))
+            {
+                var user = (await connection.QueryAsync<User>("[spUsers_GetByUsername] @Username",
+                    new { Username = username }))
+                    .FirstOrDefault();
+
+                return user;
             }
         }
     }
