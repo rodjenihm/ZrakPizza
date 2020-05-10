@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[UserRoles_GetRolesForUser]
-	@UserId INT
+	@UserId NVARCHAR(32)
 AS
 BEGIN
 	SET NOCOUNT ON
