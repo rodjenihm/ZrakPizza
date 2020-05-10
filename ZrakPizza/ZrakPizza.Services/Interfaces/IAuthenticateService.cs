@@ -2,7 +2,7 @@
 
 namespace ZrakPizza.Services
 {
-    public interface IAuthService
+    public interface IAuthenticateService
     {
         Task<string> GenerateToken(string username, string password);
     }

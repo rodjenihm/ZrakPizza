@@ -10,14 +10,14 @@ using ZrakPizza.DataAccess;
 
 namespace ZrakPizza.Services
 {
-    public class AuthService : IAuthService
+    public class AuthenticateService : IAuthenticateService
     {
         private readonly IUserRepository userRepository;
         private readonly IUserRoleRepository userRoleRepository;
         private readonly IPasswordService passwordService;
         private readonly JwtConfig config;
 
-        public AuthService()
+        public AuthenticateService()
         {
 
         }
