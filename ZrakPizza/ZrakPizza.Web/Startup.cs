@@ -28,6 +28,9 @@ namespace ZrakPizza.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var jwtConfigSection = Configuration.GetSection("JwtConfig");
+            services.Configure<JwtConfig>(jwtConfigSection);
+
             var connectionString = new ConnectionString(Configuration.GetConnectionString("DefaultConnection"));
             services.AddSingleton(connectionString);
 
@@ -40,6 +43,8 @@ namespace ZrakPizza.Web
             services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddScoped<ICartRepository, CartRepository>();
+
+            services.AddScoped<IAuthenticateService, AuthenticateService>();
 
             services.AddAutoMapper(typeof(Startup));
 
