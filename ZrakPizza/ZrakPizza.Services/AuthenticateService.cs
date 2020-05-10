@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,33 +13,34 @@ namespace ZrakPizza.Services
 {
     public class AuthenticateService : IAuthenticateService
     {
-        private readonly IUserRepository userRepository;
-        private readonly IUserRoleRepository userRoleRepository;
-        private readonly IPasswordService passwordService;
-        private readonly JwtConfig config;
+        private readonly IUserRepository _userRepository;
+        private readonly IUserRoleRepository _userRoleRepository;
+        private readonly IPasswordService _passwordService;
+        private readonly JwtConfig _jwtConfig;
 
-        public AuthenticateService()
+        public AuthenticateService(
+            IUserRepository userRepository,
+            IUserRoleRepository userRoleRepository,
+            IPasswordService passwordService,
+            IOptions<JwtConfig> jwtConfigOptions)
         {
-
+            _userRepository = userRepository;
+            _userRoleRepository = userRoleRepository;
+            _passwordService = passwordService;
+            _jwtConfig = jwtConfigOptions.Value;
         }
 
         public async Task<string> GenerateToken(string username, string password)
         {
-            var user = await userRepository.GetByUsername(username);
+            var user = await _userRepository.GetByUsername(username);
 
-            if (user == null)
-            {
-                return null;
-            }
+            if (user == null) return null;
 
-            if (!passwordService.VerifyHashedPassword(password, user.PasswordHash))
-            {
-                return null;
-            }
+            if (!_passwordService.VerifyHashedPassword(password, user.PasswordHash)) return null;
 
-            var userRoles = (await userRoleRepository.GetRolesForUser(user.Id)).Select(r => r.Name);
+            var userRoles = (await _userRoleRepository.GetRolesForUser(user.Id)).Select(r => r.Name);
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.Key));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Key));
 
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
@@ -53,8 +55,8 @@ namespace ZrakPizza.Services
                 claims.Add(new Claim(ClaimTypes.Role, role));
 
             var token = new JwtSecurityToken(
-                            config.Issuer,
-                            config.Audience,
+                            _jwtConfig.Issuer,
+                            _jwtConfig.Audience,
                             claims,
                             expires: DateTime.Now.AddDays(7),
                             signingCredentials: credentials);

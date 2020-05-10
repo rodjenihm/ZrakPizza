@@ -33,8 +33,8 @@ namespace ZrakPizza.DataAccess
         {
             using (var connection = new SqlConnection(_connectionString.Value))
             {
-                var user = (await connection.QueryAsync<User>("[spUsers_GetByUsername] @Username",
-                    new { Username = username }))
+                var user = (await connection.QueryAsync<User>("[Users_GetByUsername] @UserName",
+                    new { UserName = username }))
                     .FirstOrDefault();
 
                 return user;
