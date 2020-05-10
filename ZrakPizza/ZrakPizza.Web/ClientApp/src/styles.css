@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  background: url('c:\users\danijel\desktop\web\zrakpizza\zrakpizza\zrakpizza.web\clientapp\src\assets\images\bg.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media(max-width: 960px) {
+}
