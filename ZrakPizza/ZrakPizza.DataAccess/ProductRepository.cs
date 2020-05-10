@@ -27,11 +27,11 @@ namespace ZrakPizza.DataAccess
 
                     var dic = new Dictionary<string, Product>();
 
-                    var result = await connection.QueryAsync<Product, ProductOption, Product>(sql, (p, v) =>
+                    var result = await connection.QueryAsync<Product, ProductOption, Product>(sql, (p, po) =>
                     {
                         if (!dic.TryGetValue(p.Id, out Product product)) dic.Add(p.Id, product = p);
 
-                        product.ProductOptions.Add(v);
+                        product.ProductOptions.Add(po);
 
                         return p;
                     });
