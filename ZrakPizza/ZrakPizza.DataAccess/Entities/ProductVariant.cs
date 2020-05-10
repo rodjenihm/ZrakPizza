@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZrakPizza.DataAccess.Entities
 {
-    public class Variant : Product
+    public class ProductVariant : Product
     {
         public VariantOption VariantOption { get; set; }
     }

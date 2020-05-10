@@ -10,6 +10,6 @@ namespace ZrakPizza.DataAccess.Entities
         public int ItemsCount { get; set; }
         public decimal ItemsTotalPrice { get; set; }
 
-        public ICollection<Variant> Items { get; set; } = new List<Variant>();
+        public ICollection<ProductVariant> Items { get; set; } = new List<ProductVariant>();
     }
 }
