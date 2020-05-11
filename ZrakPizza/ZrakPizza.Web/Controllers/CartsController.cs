@@ -20,6 +20,14 @@ namespace ZrakPizza.Web.Controllers
             _cartRepository = cartRepository;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get(string id)
+        {
+            var cart = await _cartRepository.GetById(id);
+
+            return Ok(cart);
+        }
+
         [HttpPost("createCart")]
         public async Task<IActionResult> CreateCart()
         {
