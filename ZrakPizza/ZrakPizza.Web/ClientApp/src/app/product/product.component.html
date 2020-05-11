@@ -1,0 +1,15 @@
+<div class="product">
+  <img class="product-image" [src]="product.imageUrl" />
+  <i class="fas fa-info-circle product-show-description"></i>
+  <h5 class="product-name">{{ product.name }}</h5>
+  <div class="product-options">
+    <select class="product-options-description" [(ngModel)]="selectedOption">
+      <option *ngFor="let productOption of product.productOptions" [ngValue]="productOption">{{ productOption.description }} </option>
+    </select>
+    <h5 class="product-options-price" *ngIf="selectedOption">{{ selectedOption.price | currency:'EUR' }}</h5>
+  </div>
+  <button class="product-add-to-cart" *ngIf="selectedOption" (click)="addToCart()"><i class="fas fa-shopping-cart"></i>Add to Cart</button>
+  <div class="product-description">
+    {{ product.description }}
+  </div>
+</div>
