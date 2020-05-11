@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\services\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
