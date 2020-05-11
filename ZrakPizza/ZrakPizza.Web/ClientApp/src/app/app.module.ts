@@ -8,6 +8,7 @@ import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { FormsModule } from '@angular/forms';
+import { CartService } from './services/cart.service';
 
 
 
@@ -24,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-    ProductService],
+    ProductService,
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
