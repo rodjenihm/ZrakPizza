@@ -11,6 +11,7 @@ namespace ZrakPizza.DataAccess.Entities
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string Category { get; set; }
-        public ProductOption ProductOption { get; set; }
+        public string VariantDescription { get; set; }
+        public decimal Price { get; set; }
     }
 }

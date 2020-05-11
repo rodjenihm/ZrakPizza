@@ -18,6 +18,17 @@ namespace ZrakPizza.DataAccess
             _connectionString = connectionString;
         }
 
+        public async Task AddVariant(string cartId, string productOptionId)
+        {
+            using (var connection = new SqlConnection(_connectionString.Value))
+            {
+                var sql = "[CartVariants_Create] @Id, @CartId, @ProductOptionId";
+
+                var result = await connection.ExecuteAsync(sql,
+                    new { Id = Guid.NewGuid().ToString("N"), CartId = cartId, @ProductOptionId = productOptionId });
+            }
+        }
+
         public async Task Create(Cart cart)
         {
             using (var connection = new SqlConnection(_connectionString.Value))
@@ -39,6 +50,17 @@ namespace ZrakPizza.DataAccess
                     .FirstOrDefault();
 
                 return cart;
+            }
+        }
+
+        public async Task RemoveVariant(string cartId, string productOptionId)
+        {
+            using (var connection = new SqlConnection(_connectionString.Value))
+            {
+                var sql = "[CartVariants_DeleteByProductOptionId] @CartId, @ProductOptionId";
+
+                var result = await connection.ExecuteAsync(sql,
+                    new { CartId = cartId, @ProductOptionId = productOptionId });
             }
         }
     }
