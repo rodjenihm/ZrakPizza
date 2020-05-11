@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '../models/product';
+import { ProductOption } from '../models/product.option';
 
 @Component({
   selector: 'app-product',
@@ -6,9 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() product;
+  @Input() product: Product;
 
-  selectedOption;
+  selectedOption: ProductOption;
 
   constructor() { }
 
@@ -17,6 +19,5 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart() {
-
   }
 }
