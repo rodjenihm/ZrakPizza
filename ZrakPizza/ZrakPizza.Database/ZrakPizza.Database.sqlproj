@@ -78,6 +78,7 @@
     <Build Include="dbo\Triggers\Users_UserCreated.sql" />
     <Build Include="dbo\Stored Procedures\UserRoles_GetRolesForUser.sql" />
     <Build Include="dbo\Stored Procedures\Users_GetByUserName.sql" />
+    <Build Include="dbo\Stored Procedures\Carts_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZrakPizza.Database.publish.xml" />
