@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZrakPizza.DataAccess.Entities;
@@ -24,6 +25,20 @@ namespace ZrakPizza.DataAccess
                 var sql = "[Carts_Create] @Id, @ItemsCount, @ItemsTotalPrice";
 
                 var result = await connection.ExecuteAsync(sql, cart);
+            }
+        }
+
+        public async Task<Cart> GetById(string cartId)
+        {
+            using (var connection = new SqlConnection(_connectionString.Value))
+            {
+                var sql = "[Carts_GetById] @Id";
+
+                var cart = (await connection.QueryAsync<Cart>(sql,
+                    new { Id = cartId }))
+                    .FirstOrDefault();
+
+                return cart;
             }
         }
     }

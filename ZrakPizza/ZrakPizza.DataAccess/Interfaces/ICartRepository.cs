@@ -9,5 +9,6 @@ namespace ZrakPizza.DataAccess
     public interface ICartRepository
     {
         Task Create(Cart cart);
+        Task<Cart> GetById(string cartId);
     }
 }
