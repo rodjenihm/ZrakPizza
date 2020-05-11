@@ -1,1 +1,7 @@
-
+.products {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
