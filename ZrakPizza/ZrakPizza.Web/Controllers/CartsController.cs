@@ -46,6 +46,15 @@ namespace ZrakPizza.Web.Controllers
             return Ok(newCart);
         }
 
+
+        [HttpPost("clearCart")]
+        public async Task<IActionResult> Clear(CartVariantDto cartVariantDto)
+        {
+            await _cartRepository.Clear(cartVariantDto.CartId);
+
+            return Ok();
+        }
+
         [HttpPost("addVariant")]
         public async Task<IActionResult> AddVariant(CartVariantDto cartVariantDto)
         {
