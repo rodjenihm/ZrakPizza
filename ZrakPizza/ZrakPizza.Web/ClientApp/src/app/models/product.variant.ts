@@ -4,6 +4,6 @@ export interface ProductVariant {
   description: string;
   imageUrl: string;
   category: string;
-  variantdescription: string;
+  variantDescription: string;
   price: number;
 }
