@@ -46,4 +46,29 @@ export class CartService {
         }
       });
   }
+
+  removeFromCart(productVariant: ProductVariant) {
+    const idx = this.globalCart.items.findIndex(i => i.id === productVariant.id);
+    if (idx > -1) {
+      this.http.post(this.url + '/removeVariant', { "cartId": this.globalCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
+        .subscribe(response => {
+          if (response.status === 200) {
+            this.globalCart.items.splice(idx, 1);
+            this.globalCart.itemsCount--;
+            this.globalCart.itemsTotalPrice -= productVariant.price;
+          }
+        });
+    }
+  }
+
+  clearCart() {
+    this.http.post(this.url + '/clearCart', { "cartId": this.globalCart.id }, { observe: 'response' })
+      .subscribe(response => {
+        if (response.status == 200) {
+          this.globalCart.items = [];
+          this.globalCart.itemsCount = 0;
+          this.globalCart.itemsTotalPrice = 0;
+        }
+      });
+  }
 }
