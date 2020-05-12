@@ -10,6 +10,7 @@ namespace ZrakPizza.DataAccess
     {
         Task Create(Cart cart);
         Task<Cart> GetById(string cartId);
+        Task Clear(string cartId);
         Task AddVariant(string cartId, string productOptionId);
         Task RemoveVariant(string cartId, string productOptionId);
     }

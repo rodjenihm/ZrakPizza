@@ -82,6 +82,7 @@
     <Build Include="dbo\Stored Procedures\CartVariants_Create.sql" />
     <Build Include="dbo\Stored Procedures\CartVariants_DeleteByProductOptionId.sql" />
     <Build Include="dbo\Stored Procedures\Carts_GetByIdWithItems.sql" />
+    <Build Include="dbo\Stored Procedures\CartVariants_DeleteAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZrakPizza.Database.publish.xml" />

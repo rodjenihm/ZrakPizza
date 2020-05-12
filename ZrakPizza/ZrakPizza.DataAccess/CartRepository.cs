@@ -38,6 +38,16 @@ namespace ZrakPizza.DataAccess
                 var result = await connection.ExecuteAsync(sql, cart);
             }
         }
+        public async Task Clear(string cartId)
+        {
+            using (var connection = new SqlConnection(_connectionString.Value))
+            {
+                var sql = "[CartVariants_DeleteAll] @CartId";
+
+                var result = await connection.ExecuteAsync(sql,
+                    new { CartId = cartId });
+            }
+        }
 
         public async Task<Cart> GetById(string cartId)
         {
