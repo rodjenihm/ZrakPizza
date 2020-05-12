@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using ZrakPizza.DataAccess.Entities;
-using Dapper;
+﻿using Dapper;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
+using ZrakPizza.DataAccess.Entities;
 
 namespace ZrakPizza.DataAccess
 {

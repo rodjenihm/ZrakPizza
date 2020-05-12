@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-
-namespace ZrakPizza.Services
+﻿namespace ZrakPizza.Services
 {
     public class JwtConfig
     {

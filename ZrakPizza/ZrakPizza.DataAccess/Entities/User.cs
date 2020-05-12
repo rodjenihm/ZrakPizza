@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace ZrakPizza.DataAccess.Entities
+﻿namespace ZrakPizza.DataAccess.Entities
 {
     public class User
     {

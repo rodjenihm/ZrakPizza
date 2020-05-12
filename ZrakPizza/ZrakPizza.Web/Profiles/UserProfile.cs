@@ -1,8 +1,4 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ZrakPizza.DataAccess.Entities;
 using ZrakPizza.Web.Dto;
 using ZrakPizza.Web.Resources;

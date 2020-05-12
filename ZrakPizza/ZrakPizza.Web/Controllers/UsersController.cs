@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Data.SqlClient;
+using System.Threading.Tasks;
 using ZrakPizza.DataAccess;
 using ZrakPizza.DataAccess.Entities;
 using ZrakPizza.Services;
