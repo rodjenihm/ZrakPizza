@@ -79,6 +79,9 @@
     <Build Include="dbo\Stored Procedures\UserRoles_GetRolesForUser.sql" />
     <Build Include="dbo\Stored Procedures\Users_GetByUserName.sql" />
     <Build Include="dbo\Stored Procedures\Carts_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\CartVariants_Create.sql" />
+    <Build Include="dbo\Stored Procedures\CartVariants_DeleteByProductOptionId.sql" />
+    <Build Include="dbo\Stored Procedures\Carts_GetByIdWithItems.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZrakPizza.Database.publish.xml" />
