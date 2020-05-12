@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ZrakPizza.DataAccess;
 using ZrakPizza.DataAccess.Entities;
+using ZrakPizza.Web.Dto;
 
 namespace ZrakPizza.Web.Controllers
 {
@@ -43,6 +44,22 @@ namespace ZrakPizza.Web.Controllers
             await _cartRepository.Create(newCart);
 
             return Ok(newCart);
+        }
+
+        [HttpPost("addVariant")]
+        public async Task<IActionResult> AddVariant(CartVariantDto cartVariantDto)
+        {
+            await _cartRepository.AddVariant(cartVariantDto.CartId, cartVariantDto.ProductVariantId);
+
+            return Ok();
+        }
+
+        [HttpPost("removeVariant")]
+        public async Task<IActionResult> RemoveVariant(CartVariantDto cartVariantDto)
+        {
+            await _cartRepository.RemoveVariant(cartVariantDto.CartId, cartVariantDto.ProductVariantId);
+
+            return Ok();
         }
     }
 }
