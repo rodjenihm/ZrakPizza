@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { FormsModule } from '@angular/forms';
 import { CartService } from './services/cart.service';
+import { MenuComponent } from './menu/menu.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -16,7 +18,9 @@ import { CartService } from './services/cart.service';
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProductComponent
+    ProductComponent,
+    MenuComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

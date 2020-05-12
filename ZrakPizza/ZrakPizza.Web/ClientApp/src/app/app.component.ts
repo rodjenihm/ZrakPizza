@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './services/product.service';
-import { CartService } from './services/cart.service';
-import { Cart } from './models/cart';
+
 
 @Component({
   selector: 'app-root',
@@ -11,10 +9,8 @@ import { Cart } from './models/cart';
 export class AppComponent implements OnInit {
   products$;
 
-  constructor(
-    private productService: ProductService) { }
+  constructor() { }
 
-  async ngOnInit() {
-    this.products$ = this.productService.getAll(true);
+  ngOnInit() {
   }
 }
