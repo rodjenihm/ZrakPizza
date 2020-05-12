@@ -43,13 +43,23 @@ namespace ZrakPizza.DataAccess
         {
             using (var connection = new SqlConnection(_connectionString.Value))
             {
-                var sql = "[Carts_GetById] @Id";
+                var sql = "[Carts_GetByIdWithItems] @Id";
 
-                var cart = (await connection.QueryAsync<Cart>(sql,
-                    new { Id = cartId }))
-                    .FirstOrDefault();
+                var dic = new Dictionary<string, Cart>();
 
-                return cart;
+                var result = await connection.QueryAsync<Cart, ProductVariant, Cart>(
+                    sql,
+                    (c, pv) =>
+                    {
+                        if (!dic.TryGetValue(c.Id, out Cart cart)) dic.Add(c.Id, cart = c);
+
+                        if (pv != null) cart.Items.Add(pv);
+
+                        return c;
+                    },
+                    new { Id = cartId });
+
+                return dic.Values.FirstOrDefault();
             }
         }
 
