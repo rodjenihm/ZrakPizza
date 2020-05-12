@@ -1,0 +1,19 @@
+<div class="cart">
+  <h1 *ngIf="cart.itemsCount === 0">Cart is empty</h1>
+  <div class="cart-item" *ngFor="let item of cart.items">
+    <img class="cart-item-image" [src]="item.imageUrl">
+    <div class="cart-item-name-and-description">
+      <p class="cart-item-name">{{ item.name }}</p>
+      <p class="cart-item-description">{{ item.variantDescription }}</p>
+      <p class="cart-item-description">{{ item.description }}</p>
+    </div>
+    <div class="cart-item-price-and-counter">
+      <p class="cart-item-price">{{ item.price | currency:"EUR" }}</p>
+    </div>
+  </div>
+  <p class="cart-total-price">Total: {{ cart.itemsTotalPrice | currency:"EUR" }}</p>
+  <div *ngIf="cart.itemsCount > 0">
+    <button class="btn btn-checkout" (click)="checkout()" routerLink='/checkout'>Checkout</button>
+    <button class="btn btn-clear" (click)="clearCart()">Clear cart</button>
+  </div>
+</div>
