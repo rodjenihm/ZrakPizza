@@ -1,12 +1,17 @@
 <div class="product">
+  <div class="product-variant-in-cart-count" *ngIf="selectedOptionInCartCount() as count">
+    <button (click)="removeFromCart()">-</button>
+    <h5>In Cart: {{ count }}</h5>
+    <button (click)="addToCart()">+</button>
+  </div>
   <img class="product-image" [src]="product.imageUrl" />
   <i class="fas fa-info-circle product-show-description"></i>
-  <h5 class="product-name">{{ product.name }}</h5>
+  <p class="product-name">{{ product.name }}</p>
   <div class="product-options">
     <select class="product-options-description" [(ngModel)]="selectedOption">
       <option *ngFor="let productOption of product.productOptions" [ngValue]="productOption">{{ productOption.description }} </option>
     </select>
-    <h5 class="product-options-price" *ngIf="selectedOption">{{ selectedOption.price | currency:'EUR' }}</h5>
+    <p class="product-options-price" *ngIf="selectedOption">{{ selectedOption.price | currency:'EUR' }}</p>
   </div>
   <button class="product-add-to-cart" *ngIf="selectedOption" (click)="addToCart()"><i class="fas fa-shopping-cart"></i>Add to Cart</button>
   <div class="product-description">

@@ -1,11 +1,49 @@
 .product {
   position: relative;
-  margin: 5px;
+  margin: 0 15px;
   max-width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
+
+.product-variant-in-cart-count {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.3);
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-family: cursive;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  z-index: 10;
+  display: flex;
+}
+
+  .product-variant-in-cart-count > h5 {
+    width: 80%;
+  }
+
+  .product-variant-in-cart-count > button {
+    height: 40px;
+    line-height: 40px;
+    width: 10%;
+    background: rgba(205, 205, 205, 0.3);
+    border: none;
+    color: white;
+    color: white;
+    font-size: 24px;
+    font-family: cursive;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+    .product-variant-in-cart-count > button:active {
+      transform: scale(1.05);
+    }
 
 .product-image {
   width: 100%;
@@ -13,7 +51,6 @@
   max-height: 350px;
   max-width: 350px;
   display: block;
-  position: relative;
 }
 
 .product-name {
@@ -30,7 +67,7 @@
 
 .product-show-description {
   position: absolute;
-  top: 67.5%;
+  top: 65%;
   left: 95%;
   padding-right: 5px;
   text-align: end;
@@ -41,18 +78,18 @@
   .product-show-description:hover ~ .product-description {
     visibility: visible;
     top: 30%;
-    transition: .5s all ease-in;
+    transition: .5s all ease-out;
   }
 
 .product-description {
   position: absolute;
-  top: 10%;
+  top: 50%;
   padding: 5px;
   height: 60px;
   width: 100%;
   color: white;
   background: rgba(64, 64, 64, 0.7);
-  border-radius: 14px;
+  border-radius: 10px;
   visibility: hidden;
 }
 
@@ -92,6 +129,11 @@
   margin: 1px 0;
   border: none;
   border-radius: 2px;
+}
+
+.product-name, .product-options, .product-add-to-cart {
+  position: relative;
+  top: -25px;
 }
 
   .product-add-to-cart:hover {
