@@ -86,5 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ZrakPizza.Database.publish.xml" />
+    <None Include="ZrakPizza_1.Database.publish.xml" />
   </ItemGroup>
 </Project>
