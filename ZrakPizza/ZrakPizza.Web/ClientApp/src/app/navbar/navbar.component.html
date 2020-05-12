@@ -17,5 +17,9 @@
     <li class="navbar-item">
       <a class="navbar-link" href="#">About</a>
     </li>
+
+    <li class="navbar-item" *ngIf="cart">
+      <a class="navbar-link" href="#"><sub>({{ cartService.getCart().itemsCount }})</sub><i class="fas fa-shopping-cart"><sup>{{ cartService.getCart().itemsTotalPrice | currency:'EUR' }}</sup></i></a>
+    </li>
   </ul>
 </nav>
