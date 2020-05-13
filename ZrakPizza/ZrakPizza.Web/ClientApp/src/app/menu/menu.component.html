@@ -1,4 +1,4 @@
 <div class="menu">
-  <app-product *ngFor="let product of products$ | async" [product]="product">
+  <app-product *ngFor="let product of productService.getAllLocal()" [product]="product">
   </app-product>
 </div>

@@ -9,9 +9,18 @@ import { share } from 'rxjs/operators';
 export class ProductService {
   private url = "api/products";
 
-  constructor(private http: HttpClient) { }
+  private products: Product[];
+
+  constructor(private http: HttpClient) {
+    this.getAll(true)
+      .subscribe(products => this.products = products);
+  }
 
   getAll(includeProductOptions) {
     return this.http.get<Product[]>(this.url, { observe: 'body', params: { "includeProductOptions": includeProductOptions } }).pipe(share());
+  }
+
+  getAllLocal() {
+    return this.products;
   }
 }

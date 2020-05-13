@@ -11,10 +11,10 @@ import { ProductVariant } from '../models/product.variant';
 export class CartService {
   private url = "api/carts";
 
-  private globalCart: Cart = { id: '', itemsCount: 0, itemsTotalPrice: 0, items: [] };
+  private localCart: Cart = { id: '', itemsCount: 0, itemsTotalPrice: 0, items: [] };
 
   constructor(private http: HttpClient) {
-    this.initializeCart().subscribe(cart => this.globalCart = cart);
+    this.initializeCart().subscribe(cart => this.localCart = cart);
   }
 
   private initializeCart(): Observable<Cart> {
@@ -33,41 +33,41 @@ export class CartService {
   }
 
   getCart(): Cart {
-    return this.globalCart;
+    return this.localCart;
   }
 
   addToCart(productVariant: ProductVariant) {
-    this.http.post(this.url + '/addVariant', { "cartId": this.globalCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
+    this.http.post(this.url + '/addVariant', { "cartId": this.localCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
       .subscribe(response => {
         if (response.status === 200) {
-          this.globalCart.items.push(productVariant);
-          this.globalCart.itemsCount++;
-          this.globalCart.itemsTotalPrice += productVariant.price;
+          this.localCart.items.push(productVariant);
+          this.localCart.itemsCount++;
+          this.localCart.itemsTotalPrice += productVariant.price;
         }
       });
   }
 
   removeFromCart(productVariant: ProductVariant) {
-    const idx = this.globalCart.items.findIndex(i => i.id === productVariant.id);
+    const idx = this.localCart.items.findIndex(i => i.id === productVariant.id);
     if (idx > -1) {
-      this.http.post(this.url + '/removeVariant', { "cartId": this.globalCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
+      this.http.post(this.url + '/removeVariant', { "cartId": this.localCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
         .subscribe(response => {
           if (response.status === 200) {
-            this.globalCart.items.splice(idx, 1);
-            this.globalCart.itemsCount--;
-            this.globalCart.itemsTotalPrice -= productVariant.price;
+            this.localCart.items.splice(idx, 1);
+            this.localCart.itemsCount--;
+            this.localCart.itemsTotalPrice -= productVariant.price;
           }
         });
     }
   }
 
   clearCart() {
-    this.http.post(this.url + '/clearCart', { "cartId": this.globalCart.id }, { observe: 'response' })
+    this.http.post(this.url + '/clearCart', { "cartId": this.localCart.id }, { observe: 'response' })
       .subscribe(response => {
-        if (response.status == 200) {
-          this.globalCart.items = [];
-          this.globalCart.itemsCount = 0;
-          this.globalCart.itemsTotalPrice = 0;
+        if (response.status === 200) {
+          this.localCart.items = [];
+          this.localCart.itemsCount = 0;
+          this.localCart.itemsTotalPrice = 0;
         }
       });
   }
