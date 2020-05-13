@@ -1,4 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
 .home {
-  margin: 60px auto;
+  height: 100vh;
+  width: 100%;
   padding: 0 5%;
+  flex-grow: 1;
+  color: white;
+  font-size: 24px;
+  font-family: cursive;
+  font-style: italic;
+  text-align: center;
+  display: flex;
+}
+
+.about {
+  height: 100vh;
+  width: 100%;
+  padding: 0 5%;
+  flex-grow: 1;
+  color: white;
+  font-size: 24px;
+  font-family: cursive;
+  font-style: italic;
+  text-align: center;
+  background: url('./../../assets/images/bg2.jpg');
+  background-size: cover;
+  background-attachment: scroll;
+  display: flex;
 }

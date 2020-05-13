@@ -10,9 +10,13 @@
   user-select: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
-  background: url('c:\users\danijel\desktop\web\zrakpizza\zrakpizza\zrakpizza.web\clientapp\src\assets\images\bg.jpg') no-repeat;
+  background: url('./assets/images/bg.jpg') no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
