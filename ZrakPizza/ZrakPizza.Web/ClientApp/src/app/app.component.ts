@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -9,13 +10,15 @@ import { CartService } from './services/cart.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  products$;
+  private appTitle = "Zrak Pizza";
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService) {
+    private cartService: CartService,
+    private titleService: Title) {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.appTitle);
   }
 }
