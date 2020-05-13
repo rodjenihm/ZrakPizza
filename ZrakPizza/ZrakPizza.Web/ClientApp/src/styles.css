@@ -11,11 +11,38 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: url('c:\users\danijel\desktop\web\zrakpizza\zrakpizza\zrakpizza.web\clientapp\src\assets\images\bg.jpg') no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-@media(max-width: 960px) {
+
+.title {
+  width: 100%;
+  color: white;
+  font-size: 32px;
+  text-align: center;
 }
+
+  .title::before {
+    width: 32%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    left: 5%;
+    top: 16px;
+    content: "";
+    z-index: 1;
+  }
+
+  .title::after {
+    width: 32%;
+    height: 1px;
+    background-color: white;
+    right: 5%;
+    top: 16px;
+    content: "";
+    position: absolute;
+    z-index: 1;
+  }

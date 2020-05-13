@@ -1,1 +1,22 @@
+.main {
+  min-height: calc(100vh - 80px - 80px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
+.footer {
+  height: 80px;
+  background: rgba(32, 32, 32, 1);
+  color: white;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-style: ridge;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  .footer > div i {
+    padding: 10px;
+  }
