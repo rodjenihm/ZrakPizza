@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CartService } from './services/cart.service';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -20,7 +21,8 @@ import { CartComponent } from './cart/cart.component';
     NavbarComponent,
     ProductComponent,
     MenuComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
