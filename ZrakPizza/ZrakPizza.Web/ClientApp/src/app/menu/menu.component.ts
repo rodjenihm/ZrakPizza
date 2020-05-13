@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { Observable } from 'rxjs';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +9,7 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  products$;
+  products$: Observable<Product[]>;
 
   constructor(private productService: ProductService) { }
 
