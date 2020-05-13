@@ -1,4 +1,9 @@
+:host {
+  position: relative;
+}
+
 .cart {
+  position: relative;
   width: 90%;
   margin: 60px auto;
   padding: 5px;
