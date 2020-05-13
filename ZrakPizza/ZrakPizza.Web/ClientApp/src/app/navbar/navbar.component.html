@@ -7,15 +7,17 @@
   <label class="navbar-brand">ZrakPizza</label>
   <ul class="navbar-group">
     <li class="navbar-item">
-      <a class="navbar-link" routerLink="/">Home</a>
+      <a class="navbar-link" routerLink="/home" routerLinkActive="active">Home</a>
     </li>
 
     <li class="navbar-item">
-      <a class="navbar-link" routerLink="/menu">Menu</a>
+      <a class="navbar-link" routerLink="/menu" routerLinkActive="active">Menu</a>
     </li>
 
     <li class="navbar-item" *ngIf="cart">
-      <a class="navbar-link" routerLink="/cart"><sub>({{ cartService.getCart().itemsCount }})</sub><i class="fas fa-shopping-cart"><sup>{{ cartService.getCart().itemsTotalPrice | currency:'EUR' }}</sup></i></a>
+      <a class="navbar-link" routerLink="/cart" routerLinkActive="active">
+        <sub>({{ cartService.getCart().itemsCount }})</sub><i class="fas fa-shopping-cart"><sup>{{ cartService.getCart().itemsTotalPrice | currency:'EUR' }}</sup></i>
+      </a>
     </li>
   </ul>
 </nav>
