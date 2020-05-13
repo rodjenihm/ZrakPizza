@@ -12,6 +12,8 @@ import { CartService } from './services/cart.service';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -22,7 +24,9 @@ import { HomeComponent } from './home/home.component';
     ProductComponent,
     MenuComponent,
     CartComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
