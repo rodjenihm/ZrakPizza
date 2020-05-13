@@ -18,6 +18,14 @@
       <a class="navbar-link" routerLink="/menu" routerLinkActive="active">Menu</a>
     </li>
 
+    <li class="navbar-item">
+      <a class="navbar-link" routerLink="/login" routerLinkActive="active">Login</a>
+    </li>
+
+    <li class="navbar-item">
+      <a class="navbar-link" routerLink="/register" routerLinkActive="active">Register</a>
+    </li>
+
     <li class="navbar-item" *ngIf="cart">
       <a class="navbar-link" routerLink="/cart" routerLinkActive="active">
         <sub>({{ cartService.getCart().itemsCount }})</sub><i class="fas fa-shopping-cart"><sup>{{ cartService.getCart().itemsTotalPrice | currency:'EUR' }}</sup></i>
