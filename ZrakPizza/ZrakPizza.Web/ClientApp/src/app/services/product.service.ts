@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { Product } from '../models/product';
+import { share } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,6 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getAll(includeProductOptions) {
-    return this.http.get(this.url, { observe: 'body', params: { "includeProductOptions": includeProductOptions } });
+    return this.http.get<Product[]>(this.url, { observe: 'body', params: { "includeProductOptions": includeProductOptions } }).pipe(share());
   }
 }
