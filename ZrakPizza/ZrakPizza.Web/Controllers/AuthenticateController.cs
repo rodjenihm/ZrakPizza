@@ -22,7 +22,7 @@ namespace ZrakPizza.Web.Controllers
             var token = await _authenticateService.GenerateToken(userCredentialsDto.Username, userCredentialsDto.Password);
 
             if (token == null)
-                return Ok("Username and/or password are incorrect");
+                return Ok(new { token, errorMessage = "Username and/or password are incorrect" });
 
             return Ok(new { token = token });
         }
