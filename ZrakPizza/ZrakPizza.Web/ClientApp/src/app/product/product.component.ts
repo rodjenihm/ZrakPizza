@@ -19,7 +19,6 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.selectedOption = this.product.productOptions[0];
-    this.cartService.getCart().items.reduce((acc, cur) => cur.id === this.selectedOption.id ? ++acc : acc, 0)
   }
 
   addToCart() {

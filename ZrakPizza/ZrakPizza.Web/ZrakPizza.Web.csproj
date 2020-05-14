@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\models\cart.ts" />
     <None Remove="ClientApp\src\app\models\credentials.ts" />
     <None Remove="ClientApp\src\app\models\product.option.ts" />
@@ -14,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\services\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
