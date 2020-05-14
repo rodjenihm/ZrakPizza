@@ -63,10 +63,15 @@
     top: 80px;
     left: -100%;
     transition: .5s;
+    text-align: center;
+  }
+
+  .navbar-item {
+    margin: 5px;
   }
 
   .navbar-link {
-    padding: 6px;
+    padding: 3px;
     border-radius: 10px;
   }
 
