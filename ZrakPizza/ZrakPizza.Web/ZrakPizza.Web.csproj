@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\services\" />
     <Folder Include="ClientApp\src\assets\images\products\" />
   </ItemGroup>
 
