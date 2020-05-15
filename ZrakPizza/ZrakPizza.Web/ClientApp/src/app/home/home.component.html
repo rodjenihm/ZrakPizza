@@ -1,16 +1,20 @@
 <div class="home">
   <div style="margin: auto">
-    ZrakPizza is fictional online pizza shop made for studying purposes. <br />
-    Products are taken (stolen) from <a href="https://caribic.rs/" target="_blank">caribic.rs</a> with little to no changes. <br />
-    Pls don't sue me.
+    <p>Welcome to ZrakPizza, the one and only pizza shop you will ever need (this is joke, bre)</p>
+    <p *ngIf="authService.isAuthenticated(); else loggedOut">You are logged in as @{{ authService.currentUser.username }}</p>
+    <ng-template #loggedOut>
+      <p> You are navigating this site as guest. Please, login <a routerLink="/login">here</a>.</p>
+      <p>If you don't have account you can register <a routerLink="/register">here</a> for free.</p>
+      <p>You don't have to but keep in mind that registered user will get discount on all products in the future ;)</p>
+    </ng-template>
   </div>
 </div>
 
 <div class="about" id="about">
   <div style="margin: auto">
-    ZrakPizza is fictional online pizza shop made for studying purposes. <br />
-    Products are taken (stolen) from <a href="https://caribic.rs/" target="_blank">caribic.rs</a> with little to no changes. <br />
-    Pls don't sue me.
+    <p>ZrakPizza is fictional online pizza shop made for studying purposes.</p>
+    <p>Products are taken (stolen) from <a href="https://caribic.rs/" target="_blank">caribic.rs</a> with little to no changes.</p>
+    <p>Pls don't sue me.</p>
   </div>
 </div>
 

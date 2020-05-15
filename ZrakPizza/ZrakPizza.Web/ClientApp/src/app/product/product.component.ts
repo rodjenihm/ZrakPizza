@@ -3,6 +3,7 @@ import { Product } from '../models/product';
 import { ProductOption } from '../models/product.option';
 import { CartService } from '../services/cart.service';
 import { ProductVariant } from '../models/product.variant';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-product',
@@ -14,7 +15,9 @@ export class ProductComponent implements OnInit {
 
   selectedOption: ProductOption;
 
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    private notificationService: NotificationService) {
   }
 
   ngOnInit() {
@@ -32,7 +35,10 @@ export class ProductComponent implements OnInit {
       price: this.selectedOption.price
     };
 
-    this.cartService.addToCart(productVariant);
+    this.cartService.addToCart(productVariant).subscribe(result => {
+      if (result) this.notificationService.showSuccess(`${this.product.name}, ${this.selectedOption.description}`, 'Added to cart');
+      else this.notificationService.showError('Failed to add product to cart', 'Error');
+    });
   }
 
   removeFromCart() {
@@ -46,7 +52,13 @@ export class ProductComponent implements OnInit {
       price: this.selectedOption.price
     };
 
-    this.cartService.removeFromCart(productVariant);
+    const idx = this.cartService.getCart().items.findIndex(i => i.id === productVariant.id);
+    if (idx > -1) {
+      this.cartService.removeFromCart(productVariant).subscribe(result => {
+        if (result) this.notificationService.showSuccess(`${this.product.name}, ${this.selectedOption.description}`, 'Removed from cart');
+        else this.notificationService.showError('Failed to remove product from cart', 'Error');
+      });
+    }
   }
 
   selectedOptionInCartCount() {

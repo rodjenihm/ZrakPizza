@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Credentials } from '../models/credentials';
 import { AuthService } from '../services/auth.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private notificationService: NotificationService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute) { }
@@ -38,10 +40,11 @@ export class LoginComponent implements OnInit {
       .subscribe(result => {
         if (result) {
           const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          this.notificationService.showSuccess('Enjoy your stay.', 'Login successful');
           this.router.navigate([returnUrl ? returnUrl : '']);
         }
         else {
-          console.log('Login failed!');
+          this.notificationService.showError('Check your username and password and try again.', 'Login failed');
         }
       })
   }
