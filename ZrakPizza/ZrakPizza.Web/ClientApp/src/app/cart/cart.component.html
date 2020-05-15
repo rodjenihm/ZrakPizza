@@ -1,5 +1,5 @@
 <div class="cart">
-  <h1 *ngIf="cart.itemsCount === 0">Cart is empty</h1>
+  <h1 *ngIf="cart.itemsCount === 0">Cart is empty. Go to the <a routerLink="/menu">menu</a> to fill it up :)</h1>
   <div class="cart-item" *ngFor="let item of cart.items">
     <img class="cart-item-image" [src]="item.imageUrl">
     <div class="cart-item-name-and-description">

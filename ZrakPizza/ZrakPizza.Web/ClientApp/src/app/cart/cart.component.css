@@ -16,6 +16,10 @@
   border-radius: 14px;
 }
 
+  .cart > h1 {
+    font-size: 24px;
+  }
+
 .cart-item {
   margin: 5px;
   display: flex;
@@ -131,5 +135,9 @@
 
   .cart-total-price {
     font-size: 24px;
+  }
+
+  .cart > h1 {
+    font-size: 18px;
   }
 }

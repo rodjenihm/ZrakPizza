@@ -52,6 +52,17 @@
   display: none;
 }
 
+@media(max-width: 1024px) {
+  .navbar-item {
+    margin: 6px;
+  }
+
+  .navbar-link {
+    padding: 6px;
+    border-radius: 12px;
+  }
+}
+
 @media(max-width: 800px) {
   .navbar-group {
     position: fixed;
@@ -67,12 +78,12 @@
   }
 
   .navbar-item {
-    margin: 5px;
+    margin: 6px;
   }
 
   .navbar-link {
-    padding: 3px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 12px;
   }
 
   .check-btn {
@@ -81,5 +92,16 @@
 
   #check:checked ~ ul {
     left: 0;
+  }
+}
+
+@media(max-width: 640px) {
+  .navbar-item {
+    margin: 3px;
+  }
+
+  .navbar-link {
+    padding: 3px;
+    border-radius: 10px;
   }
 }
