@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './services/user.service';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderPlacedComponent } from './order-placed/order-placed.component';
 
 
 
@@ -33,7 +34,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderPlacedComponent
   ],
   imports: [
     BrowserModule,

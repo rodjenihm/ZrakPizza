@@ -13,7 +13,7 @@
   </div>
   <p class="cart-total-price">Total: {{ cart.itemsTotalPrice | currency:"EUR" }}</p>
   <div *ngIf="cart.itemsCount > 0">
-    <button class="btn btn-checkout" (click)="checkout()" routerLink='/checkout'>Checkout</button>
+    <button class="btn btn-checkout" routerLink='/checkout'>Checkout</button>
     <button class="btn btn-clear" (click)="clearCart()">Clear cart</button>
   </div>
 </div>

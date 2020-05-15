@@ -29,7 +29,4 @@ export class CartComponent implements OnInit {
       else this.notificationService.showSuccess('Failed to clear cart. Try again later.', 'Error');
     });
   }
-
-  checkout() {
-  }
 }
