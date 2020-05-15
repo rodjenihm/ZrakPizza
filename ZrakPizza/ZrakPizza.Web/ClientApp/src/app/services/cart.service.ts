@@ -68,13 +68,18 @@ export class CartService {
   }
 
   clearCart() {
-    this.http.post(this.url + '/clearCart', { "cartId": this.localCart.id }, { observe: 'response' })
-      .subscribe(response => {
-        if (response.status === 200) {
-          this.localCart.items = [];
-          this.localCart.itemsCount = 0;
-          this.localCart.itemsTotalPrice = 0;
-        }
-      });
+    return this.http.post(this.url + '/clearCart', { "cartId": this.localCart.id }, { observe: 'response' })
+      .pipe(
+        map(response => {
+          if (response.status === 200) {
+            this.localCart.items = [];
+            this.localCart.itemsCount = 0;
+            this.localCart.itemsTotalPrice = 0;
+            return true;
+          }
+          return false;
+        })
+      )
   }
 }
+

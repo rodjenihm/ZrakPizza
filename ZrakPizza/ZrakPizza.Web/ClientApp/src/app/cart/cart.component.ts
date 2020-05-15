@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,9 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
   cartService: CartService;
 
-  constructor(cartService: CartService) {
+  constructor(
+    cartService: CartService,
+    private notificationService: NotificationService) {
     this.cartService = cartService;
   }
 
@@ -21,7 +24,10 @@ export class CartComponent implements OnInit {
   }
 
   clearCart() {
-    this.cartService.clearCart();
+    this.cartService.clearCart().subscribe(result => {
+      if (result) this.notificationService.showSuccess('', 'Cart cleared successfully');
+      else this.notificationService.showSuccess('Failed to clear cart. Try again later.', 'Error');
+    });
   }
 
   checkout() {
