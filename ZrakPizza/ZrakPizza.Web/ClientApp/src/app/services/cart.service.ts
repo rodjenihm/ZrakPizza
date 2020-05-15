@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cart } from '../models/cart';
 import { Observable } from 'rxjs';
-import { share } from 'rxjs/operators';
+import { share, map } from 'rxjs/operators';
 import { ProductVariant } from '../models/product.variant';
 
 @Injectable({
@@ -37,28 +37,34 @@ export class CartService {
   }
 
   addToCart(productVariant: ProductVariant) {
-    this.http.post(this.url + '/addVariant', { "cartId": this.localCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
-      .subscribe(response => {
-        if (response.status === 200) {
-          this.localCart.items.push(productVariant);
-          this.localCart.itemsCount++;
-          this.localCart.itemsTotalPrice += productVariant.price;
-        }
-      });
+    return this.http.post(this.url + '/addVariant', { "cartId": this.localCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
+      .pipe(
+        map(response => {
+          if (response.status === 200) {
+            this.localCart.items.push(productVariant);
+            this.localCart.itemsCount++;
+            this.localCart.itemsTotalPrice += productVariant.price;
+            return true;
+          }
+          return false;
+        })
+      )
   }
 
   removeFromCart(productVariant: ProductVariant) {
     const idx = this.localCart.items.findIndex(i => i.id === productVariant.id);
-    if (idx > -1) {
-      this.http.post(this.url + '/removeVariant', { "cartId": this.localCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
-        .subscribe(response => {
+    return this.http.post(this.url + '/removeVariant', { "cartId": this.localCart.id, "productVariantId": productVariant.id }, { observe: 'response' })
+      .pipe(
+        map(response => {
           if (response.status === 200) {
             this.localCart.items.splice(idx, 1);
             this.localCart.itemsCount--;
             this.localCart.itemsTotalPrice -= productVariant.price;
+            return true;
           }
-        });
-    }
+          return false;
+        })
+      )
   }
 
   clearCart() {
