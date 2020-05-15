@@ -2,13 +2,13 @@
   margin: auto;
 }
 
-.login-box {
+.register-box {
   width: 280px;
   margin: auto;
   color: white;
 }
 
-  .login-box h1 {
+  .register-box h1 {
     float: left;
     font-size: 40px;
     border-bottom: 6px solid rgb(255, 216, 0);
