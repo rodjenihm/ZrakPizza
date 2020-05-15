@@ -45,7 +45,7 @@ namespace ZrakPizza.Web.Controllers
             {
                 var errorMessage = e.Message;
 
-                if (e.Number == 2601) errorMessage = $"UserName {userDto.UserName} is already taken.";
+                if (e.Number == 2601) errorMessage = $"Username {userDto.UserName} is already taken.";
 
                 return BadRequest(new { errorMessage = errorMessage });
             }

@@ -48,7 +48,8 @@ namespace ZrakPizza.Services
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Name, user.UserName),
-                new Claim("Name", user.Name)
+                new Claim("username", user.UserName),
+                new Claim("name", user.Name)
             };
 
             foreach (var role in userRoles)
