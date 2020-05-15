@@ -19,6 +19,7 @@ import { NotificationService } from './services/notification.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './services/user.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -31,7 +32,8 @@ import { UserService } from './services/user.service';
     CartComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
