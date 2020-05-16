@@ -5,22 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ClientApp\**" />
     <Compile Remove="wwwroot\**" />
+    <Content Remove="ClientApp\**" />
     <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="ClientApp\**" />
     <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="ClientApp\**" />
     <None Remove="wwwroot\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="ClientApp\src\app\models\cart.ts" />
-    <None Remove="ClientApp\src\app\models\credentials.ts" />
-    <None Remove="ClientApp\src\app\models\product.option.ts" />
-    <None Remove="ClientApp\src\app\models\product.ts" />
-    <None Remove="ClientApp\src\app\models\product.variant.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\assets\images\products\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,14 +25,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ZrakPizza.DataAccess\ZrakPizza.DataAccess.csproj" />
     <ProjectReference Include="..\ZrakPizza.Services\ZrakPizza.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\models\cart.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\models\credentials.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\models\product.option.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\models\product.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\models\product.variant.ts" />
   </ItemGroup>
 
 </Project>
