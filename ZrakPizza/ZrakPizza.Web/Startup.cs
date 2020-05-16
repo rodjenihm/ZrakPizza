@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using ZrakPizza.DataAccess;
 using ZrakPizza.Services;
+using ZrakPizza.Web.Hubs;
 
 namespace ZrakPizza.Web
 {
@@ -43,6 +44,8 @@ namespace ZrakPizza.Web
 
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddSignalR();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -60,6 +63,11 @@ namespace ZrakPizza.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSignalR(configure =>
+            {
+                configure.MapHub<CartHub>("/CartHub");
+            });
 
             app.UseMvc(routes =>
             {
