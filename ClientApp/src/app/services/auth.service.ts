@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private url = '/api/authenticate';
+  private url = 'api/api/authenticate';
 
   constructor(private http: HttpClient) { }
 

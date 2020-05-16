@@ -9,7 +9,7 @@ import { ProductVariant } from '../models/product.variant';
   providedIn: 'root'
 })
 export class CartService {
-  private url = "api/carts";
+  private url = "api/api/carts";
 
   private localCart: Cart = { id: '', itemsCount: 0, itemsTotalPrice: 0, items: [] };
 

@@ -7,7 +7,7 @@ import { share } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductService {
-  private url = "api/products";
+  private url = "api/api/products";
 
   private products: Product[];
 
