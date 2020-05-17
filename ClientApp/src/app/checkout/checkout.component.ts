@@ -3,6 +3,7 @@ import { NotificationService } from '../services/notification.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
+import { SignalRService } from '../services/signal-r.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private notificationService: NotificationService,
+    private signalRService: SignalRService,
     private router: Router,
     private formBuilder: FormBuilder) { }
 
@@ -38,7 +39,11 @@ export class CheckoutComponent implements OnInit {
   checkout(orderDetails) {
     if (window.confirm('Please make sure that provided contact informations are correct. Otherwise our courier won\'t be able to deliver the package. ')) {
       this.router.navigate(['/order-placed']);
-      this.cartService.clearCart().subscribe();
+      this.cartService.clearCart().subscribe(result => {
+        if (result) {
+          this.signalRService.notifyUpdateCart(this.cartService.getCart().id);
+        };
+      })
     }
   }
 }
