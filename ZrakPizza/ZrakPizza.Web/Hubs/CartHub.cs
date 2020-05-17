@@ -9,10 +9,9 @@ namespace ZrakPizza.Web.Hubs
 {
     public class CartHub : Hub
     {
-        public async Task AddProduct(CartVariantDto cartVariant) =>
-            await Clients.All.SendAsync("onProductAdded", cartVariant);
-
-        public async Task RemoveProduct(CartVariantDto cartVariant) =>
-            await Clients.All.SendAsync("onProductRemoved", cartVariant);
+        public async Task NotifyUpdateCart(string cartId)
+        {
+            await Clients.Others.SendAsync("updateCart", cartId);
+        }
     }
 }

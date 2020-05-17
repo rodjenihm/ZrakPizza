@@ -14,12 +14,10 @@ namespace ZrakPizza.Web.Controllers
     public class CartsController : ControllerBase
     {
         private readonly ICartRepository _cartRepository;
-        private readonly IHubContext<CartHub> _hub;
 
-        public CartsController(ICartRepository cartRepository, IHubContext<CartHub> hub)
+        public CartsController(ICartRepository cartRepository)
         {
             _cartRepository = cartRepository;
-            _hub = hub;
         }
 
         [HttpGet]
@@ -53,8 +51,6 @@ namespace ZrakPizza.Web.Controllers
         {
             await _cartRepository.Clear(cartVariantDto.CartId);
 
-            await _hub.Clients.All.SendAsync("cartCleared", cartVariantDto);
-
             return Ok();
         }
 
@@ -63,8 +59,6 @@ namespace ZrakPizza.Web.Controllers
         {
             await _cartRepository.AddVariant(cartVariantDto.CartId, cartVariantDto.ProductVariantId);
 
-            await _hub.Clients.All.SendAsync("productVariantAdded", cartVariantDto);
-
             return Ok();
         }
 
@@ -72,8 +66,6 @@ namespace ZrakPizza.Web.Controllers
         public async Task<IActionResult> RemoveVariant(CartVariantDto cartVariantDto)
         {
             await _cartRepository.RemoveVariant(cartVariantDto.CartId, cartVariantDto.ProductVariantId);
-
-            await _hub.Clients.All.SendAsync("productVariantRemoved", cartVariantDto);
 
             return Ok();
         }
