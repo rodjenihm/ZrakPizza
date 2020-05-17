@@ -1,3 +1,4 @@
+import { SignalRService } from './services/signal-r.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -51,7 +52,8 @@ import { OrderPlacedComponent } from './order-placed/order-placed.component';
     CartService,
     AuthService,
     UserService,
-    NotificationService
+    NotificationService,
+    SignalRService
   ],
   bootstrap: [AppComponent]
 })

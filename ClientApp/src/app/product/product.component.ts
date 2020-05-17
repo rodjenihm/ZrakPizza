@@ -1,3 +1,4 @@
+import { SignalRService } from './../services/signal-r.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductOption } from '../models/product.option';
@@ -17,7 +18,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private notificationService: NotificationService) {
+    private notificationService: NotificationService,
+    private signalRService: SignalRService) {
   }
 
   ngOnInit() {
@@ -36,7 +38,10 @@ export class ProductComponent implements OnInit {
     };
 
     this.cartService.addToCart(productVariant).subscribe(result => {
-      if (result) this.notificationService.showSuccess(`${this.product.name}, ${this.selectedOption.description}`, 'Added to cart');
+      if (result) {
+        this.signalRService.notifyUpdateCart(this.cartService.getCart().id);
+        this.notificationService.showSuccess(`${this.product.name}, ${this.selectedOption.description}`, 'Added to cart');
+      }
       else this.notificationService.showError('Failed to add product to cart', 'Error');
     });
   }
@@ -55,7 +60,10 @@ export class ProductComponent implements OnInit {
     const idx = this.cartService.getCart().items.findIndex(i => i.id === productVariant.id);
     if (idx > -1) {
       this.cartService.removeFromCart(productVariant).subscribe(result => {
-        if (result) this.notificationService.showSuccess(`${this.product.name}, ${this.selectedOption.description}`, 'Removed from cart');
+        if (result) {
+          this.signalRService.notifyUpdateCart(this.cartService.getCart().id);
+          this.notificationService.showSuccess(`${this.product.name}, ${this.selectedOption.description}`, 'Removed from cart');
+        }
         else this.notificationService.showError('Failed to remove product from cart', 'Error');
       });
     }
