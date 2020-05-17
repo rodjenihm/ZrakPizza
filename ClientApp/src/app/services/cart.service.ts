@@ -32,6 +32,10 @@ export class CartService {
     }
   }
 
+  refreshCart() {
+    this.initializeCart().subscribe(cart => this.localCart = cart);
+  }
+
   getCart(): Cart {
     return this.localCart;
   }
